@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write  # ✅ Esto es muy importante para que pueda hacer push a gh-pages
+
 jobs:
   github-pages:
     runs-on: ubuntu-latest
@@ -20,12 +23,13 @@ jobs:
       - name: Install dependencies
         run: |
           gem install bundler
+          bundle config set path 'vendor/bundle'
           bundle install
 
       - name: Build the site
         run: bundle exec jekyll build --source _src --destination _site
 
-      - name: Set Git config
+      - name: Configure Git identity
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
@@ -36,4 +40,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
           publish_branch: gh-pages
-          commit_message: "🚀 Deploy desde GitHub Actions"
