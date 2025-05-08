@@ -1,6 +1,6 @@
 # site variables
-url:          "https://rand-asswad.xyz"
-baseurl:      ""
+url:          ""
+baseurl:      "/Prueba-pages"
 source:       ./_src
 destination:  ./_site
 
