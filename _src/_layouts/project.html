@@ -1,0 +1,19 @@
+---
+layout: base
+---
+
+{% include header.html %}
+
+<main class="project-page">
+  <section class="section">
+    <h1 class="section-header">{{ page.title }}</h1>
+
+    {% if page.subtitle %}
+      <h2 class="tab-subtitle">{{ page.subtitle }}</h2>
+    {% endif %}
+
+    {{ content }}
+  </section>
+</main>
+
+{% include footer.html %}
