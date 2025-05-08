@@ -12,7 +12,9 @@ description: | # appears in search engines preview (keep it under 120 chars)
 
 # jekyll collections
 collections:
-  - sections
+  sections:
+    output: true
+    permalink: /:path/
 
 # sass config
 sass:
